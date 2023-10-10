@@ -2,12 +2,6 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stonemont Data - Staffing and Software Solutions</title>
-    <link rel="icon" href="images/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YGNLGQSNWJ"></script>
     <script>
@@ -17,35 +11,212 @@
 
         gtag('config', 'G-YGNLGQSNWJ');
     </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stonemont Data - Staffing and Software Solutions</title>
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
     <style>
         body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh; /* Make the body take 100% of the viewport height */
+            background-color: white;
+            color: black;
+            position: relative;
+            font-family: Arial, sans-serif; /* Adjusted font */
         }
 
-        .logo {
-            max-width: 350px; /* Adjust the size of the logo as needed */
+        .navbar {
+            background-color: #FFA500;
+            padding: 15px 0;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            margin: 0;
+            padding: 0;
+            max-width: 200px; /* Adjusted logo size */
+        }
+
+        .navbar-brand img {
+            max-width: 100%; /* Ensure the logo scales properly */
+        }
+
+        .navbar-nav {
+            display: inline-block;
+            margin-left: 10px;
+        }
+
+        .navbar-nav .nav-item {
+            display: inline-block;
+        }
+
+        .navbar-nav .nav-link {
+            color: #000;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            font-size: 1.1rem; /* Adjusted font size */
+        }
+
+        .navbar-nav .nav-link:hover {
+            background-color: #e68a00;
+            border-radius: 5px;
+            color: #fff;
+        }
+
+        .section {
+            padding: 20px 0; /* Adjusted padding */
+            text-align: center;
+        }
+
+        .section-bg {
+            background-color: white;
+            color: #000;
+        }
+
+        .card {
+            border: none;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added box shadow */
+        }
+
+        .card-title {
+            color: #FFA500;
+            font-weight: bold;
+            font-size: 1.2rem; /* Adjusted font size */
+        }
+
+        .card-text {
+            color: #555;
         }
 
         footer {
+            background-color: #FFA500;
+            color: #000;
             text-align: center;
-            margin-top: 20px;
+            padding: 10px 0;
         }
     </style>
 </head>
 
 <body>
-    <h1>Welcome to Stonemont Data</h1>
-    <p><i>We will be with you very soon!</i></p>
-    <div>
-        <img src="images/logo.png" alt="Stonemont Data Logo" class="logo">
-    </div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <img src="images/logo.png" alt="Stonemont Data Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#openings">Openings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="section section-bg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div style="margin-top: 90px;" class="col-md-8 text-center">
+                    <img src="images/logo_2.png" alt="Stonemont Data Logo" style="max-width: 650px; max-height: 400px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="row justify-content-center">
+                <!-- Service 1 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Staffing Solutions</h4>
+                            <p class="card-text">Empower your organization with the right talent through our exceptional staffing services, tailored to meet your specific needs and goals.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Software Development</h4>
+                            <p class="card-text">From concept to execution, we're committed to delivering software solutions that drive innovation and propel your business forward.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Openings Section -->
+    <section id="openings" class="section section-bg">
+        <div class="container">
+            <h2>Job Openings</h2>
+            <div class="row justify-content-center">
+                <!-- Job 1 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Data Engineer</h4>
+                            <p class="card-text">Design, implement, and manage data pipelines, ensuring efficient data processing, storage, and accessibility for analysis and insights</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">DevOps Engineer</h4>
+                            <p class="card-text">Automate and optimize the development, deployment, and operation of software applications, enhancing collaboration and efficiency</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 style="margin-top: 20px;">Contact Us</h2> <!-- Adjusted margin-top -->
+            <p>If you have any questions or inquiries, feel free to reach out to us at info@stonemontdata.com. Send your resume to careers@stonemontdata.com</p>
+            <!-- Add contact details here -->
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <p>Copyright &copy; 2023 Stonemont Data</p>
+        <div class="container">
+            <p>&copy; 2023 Stonemont Data</p>
+        </div>
     </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 
 </html>
