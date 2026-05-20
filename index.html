@@ -8,97 +8,195 @@
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'G-YGNLGQSNWJ');
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stonemont Data - Staffing and Software Solutions</title>
+    <title>Stonemont Data — Software for the unglamorous work your business runs on</title>
+    <meta name="description" content="Stonemont Data builds production software for mosques, schools, food businesses, and operations teams. Mission Logs (digital signage), Slaughterhouse Operations Manager, and custom B2B software services from a small Allen, TX team.">
     <link rel="icon" href="images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
     <style>
         body {
             background-color: white;
-            color: black;
-            position: relative;
-            font-family: Arial, sans-serif; /* Adjusted font */
+            color: #1a1a1a;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+            line-height: 1.55;
         }
 
+        /* ── Navbar ── */
         .navbar {
             background-color: #FFA500;
             padding: 15px 0;
-            text-align: center;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
-
-        .navbar-brand {
-            margin: 0;
-            padding: 0;
-            max-width: 200px; /* Adjusted logo size */
-        }
-
-        .navbar-brand img {
-            max-width: 100%; /* Ensure the logo scales properly */
-        }
-
-        .navbar-nav {
-            display: inline-block;
-            margin-left: 10px;
-        }
-
-        .navbar-nav .nav-item {
-            display: inline-block;
-        }
-
+        .navbar-brand { margin: 0; padding: 0; max-width: 200px; }
+        .navbar-brand img { max-width: 100%; }
+        .navbar-nav .nav-item { display: inline-block; }
         .navbar-nav .nav-link {
             color: #000;
-            font-weight: bold;
+            font-weight: 600;
             padding: 0.5rem 1rem;
-            font-size: 1.1rem; /* Adjusted font size */
+            font-size: 1rem;
         }
-
         .navbar-nav .nav-link:hover {
             background-color: #e68a00;
             border-radius: 5px;
             color: #fff;
         }
 
-        .section {
-            padding: 20px 0; /* Adjusted padding */
-            text-align: center;
+        /* ── Section spacing ── */
+        .section { padding: 60px 0; }
+        .section-hero { padding: 130px 0 60px; text-align: center; }
+        .section-alt { background-color: #faf9f7; }
+
+        h1 { font-weight: 600; letter-spacing: -0.02em; }
+        h2 { font-weight: 600; letter-spacing: -0.01em; margin-bottom: 1.5rem; }
+        h3 { font-weight: 600; }
+        .lead { color: #555; max-width: 700px; margin: 0 auto; }
+
+        /* ── Hero ── */
+        .hero-logo { max-width: 460px; width: 100%; height: auto; margin-bottom: 1.5rem; }
+        .hero-tag {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #1a1a1a;
+            max-width: 760px;
+            margin: 0 auto 1rem;
+            line-height: 1.4;
+        }
+        .hero-sub {
+            color: #555;
+            font-size: 1.1rem;
+            max-width: 680px;
+            margin: 0 auto;
         }
 
-        .section-bg {
-            background-color: white;
+        /* ── Product cards ── */
+        .product-card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+            padding: 28px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            transition: box-shadow 0.2s ease, transform 0.2s ease;
+        }
+        .product-card:hover {
+            box-shadow: 0 10px 24px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+        .product-card .product-eyebrow {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #FFA500;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.5rem;
+        }
+        .product-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #1a1a1a;
+        }
+        .product-card p {
+            color: #444;
+            flex-grow: 1;
+            margin-bottom: 1.25rem;
+        }
+        .product-card .product-bullets {
+            color: #555;
+            font-size: 0.92rem;
+            padding-left: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+        .product-card .product-bullets li { margin-bottom: 0.3rem; }
+        .product-card .product-ctas {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: auto;
+        }
+
+        /* ── Buttons ── */
+        .btn-brand {
+            background-color: #FFA500;
+            border-color: #FFA500;
+            color: #000;
+            font-weight: 600;
+            padding: 0.5rem 1.1rem;
+        }
+        .btn-brand:hover {
+            background-color: #e68a00;
+            border-color: #e68a00;
+            color: #fff;
+        }
+        .btn-outline-brand {
+            border: 2px solid #FFA500;
+            background-color: transparent;
+            color: #1a1a1a;
+            font-weight: 600;
+            padding: 0.4rem 1rem;
+        }
+        .btn-outline-brand:hover {
+            background-color: #FFA500;
             color: #000;
         }
 
-        .card {
+        /* ── Services cards (smaller, secondary) ── */
+        .service-card {
+            background: #fff;
             border: none;
-            background-color: white;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added box shadow */
+            border-left: 4px solid #FFA500;
+            border-radius: 4px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+            padding: 22px;
+            height: 100%;
         }
-
-        .card-title {
+        .service-card h4 {
             color: #FFA500;
-            font-weight: bold;
-            font-size: 1.2rem; /* Adjusted font size */
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
         }
+        .service-card p { color: #555; font-size: 0.95rem; margin: 0; }
 
-        .card-text {
-            color: #555;
+        /* ── Contact + careers strip ── */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            max-width: 720px;
+            margin: 0 auto;
         }
+        @media (min-width: 768px) {
+            .contact-grid { grid-template-columns: 1fr 1fr; }
+        }
+        .contact-block {
+            text-align: center;
+            padding: 1.5rem;
+            background: #fff;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        .contact-block h4 { color: #FFA500; margin-bottom: 0.5rem; }
+        .contact-block a { color: #1a1a1a; font-weight: 600; }
 
+        /* ── Footer ── */
         footer {
             background-color: #FFA500;
             color: #000;
             text-align: center;
-            padding: 10px 0;
+            padding: 18px 0;
+            font-size: 0.9rem;
         }
+        footer p { margin: 0.25rem 0; }
     </style>
 </head>
 
@@ -107,7 +205,7 @@
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
             <a class="navbar-brand" href="#home">
-                <img src="images/logo.png" alt="Stonemont Data Logo">
+                <img src="images/logo.png" alt="Stonemont Data">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -115,104 +213,182 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#services">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#openings">Openings</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact Us</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#careers">Careers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Home Section -->
-    <section id="home" class="section section-bg">
+    <!-- ── Hero ───────────────────────────────────────────────────────────── -->
+    <section id="home" class="section-hero">
         <div class="container">
-            <div class="row justify-content-center">
-                <div style="margin-top: 90px;" class="col-md-8 text-center">
-                    <img src="images/logo_2.png" alt="Stonemont Data Logo" style="max-width: 650px; max-height: 400px;">
+            <img src="images/logo_2.png" alt="Stonemont Data" class="hero-logo">
+            <p class="hero-tag">Software for the unglamorous work your business runs on.</p>
+            <p class="hero-sub">
+                We build production applications for mosques, schools, food businesses, and operations
+                teams — and we sweat the details that make them actually used. Two shipped products and
+                custom software services from a small team in Allen, TX.
+            </p>
+        </div>
+    </section>
+
+    <!-- ── Products ───────────────────────────────────────────────────────── -->
+    <section id="products" class="section section-alt">
+        <div class="container">
+            <div class="text-center">
+                <h2>Products</h2>
+                <p class="lead mb-5">Built end-to-end, deployed to real customers, maintained by us.</p>
+            </div>
+            <div class="row">
+
+                <!-- Mission Logs (signage) -->
+                <div class="col-lg-4 mb-4">
+                    <div class="product-card">
+                        <div class="product-eyebrow">Digital signage</div>
+                        <h3>Mission Logs</h3>
+                        <p>
+                            Run every screen in your building from one dashboard. Live prayer times with
+                            iqamah countdowns, sponsor rotation with monthly impression reports, donation
+                            thermometers with scan-to-give QR, janazah announcements that reach every TV
+                            in seconds, lunch menus, bell schedules, daily verses, emergency alerts.
+                        </p>
+                        <ul class="product-bullets">
+                            <li>Mosque, school, and generic-office modes</li>
+                            <li>Mobile control panel for imams (PIN-gated, no admin login required)</li>
+                            <li>Pair a TV with a 6-digit code; works on any HDMI device</li>
+                            <li>Multi-tenant, role-based, audit-logged</li>
+                        </ul>
+                        <div class="product-ctas">
+                            <a href="https://signage.stonemontdata.com/login" class="btn btn-brand">Sign in</a>
+                            <a href="https://signage.stonemontdata.com/register" class="btn btn-outline-brand">Get started</a>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Slaughterhouse Operations Manager -->
+                <div class="col-lg-4 mb-4">
+                    <div class="product-card">
+                        <div class="product-eyebrow">Operations</div>
+                        <h3>Slaughterhouse Operations Manager</h3>
+                        <p>
+                            Day-to-day operations software for slaughterhouses. Track animals from intake
+                            through processing, keep the compliance records auditors actually ask for,
+                            manage inventory and supplier relationships, and run the back office without
+                            a stack of spreadsheets.
+                        </p>
+                        <ul class="product-bullets">
+                            <li>Intake, processing, and dispatch logs in one system</li>
+                            <li>Compliance-ready audit trails</li>
+                            <li>Inventory and supplier records with reporting</li>
+                            <li>Built for halal operators, usable by any operation</li>
+                        </ul>
+                        <div class="product-ctas">
+                            <a href="https://slops.stonemontdata.com" class="btn btn-brand">Open Slops</a>
+                            <a href="#contact" class="btn btn-outline-brand">Talk to us</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Custom Software -->
+                <div class="col-lg-4 mb-4">
+                    <div class="product-card">
+                        <div class="product-eyebrow">Engagement</div>
+                        <h3>Custom software</h3>
+                        <p>
+                            When off-the-shelf doesn't fit. We've shipped to production for mosques,
+                            schools, food businesses, and field operations teams. Cloud-native on Azure,
+                            modern stack, real production-readiness — security, observability, backups,
+                            CI/CD — not just a demo.
+                        </p>
+                        <ul class="product-bullets">
+                            <li>Discovery → working prototype in weeks, not quarters</li>
+                            <li>You own the code and the infrastructure</li>
+                            <li>Maintenance and on-call available on request</li>
+                            <li>References from existing customers on request</li>
+                        </ul>
+                        <div class="product-ctas">
+                            <a href="#contact" class="btn btn-brand">Get in touch</a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- ── Services ───────────────────────────────────────────────────────── -->
     <section id="services" class="section">
         <div class="container">
-            <h2>Our Services</h2>
-            <div class="row justify-content-center">
-                <!-- Service 1 -->
+            <div class="text-center">
+                <h2>Services</h2>
+                <p class="lead mb-5">Capabilities we bring to engagements, beyond shipped products.</p>
+            </div>
+            <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title">Staffing Solutions</h4>
-                            <p class="card-text">Empower your organization with the right talent through our exceptional staffing services, tailored to meet your specific needs and goals.</p>
-                        </div>
+                    <div class="service-card">
+                        <h4>Staffing Solutions</h4>
+                        <p>The right talent for your team — sourced, vetted, and onboarded to your specific stack and operating norms, not just a resume drop.</p>
                     </div>
                 </div>
-
-                <!-- Service 2 -->
                 <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title">Software Development</h4>
-                            <p class="card-text">From concept to execution, we're committed to delivering software solutions that drive innovation and propel your business forward.</p>
-                        </div>
+                    <div class="service-card">
+                        <h4>Data Engineering</h4>
+                        <p>Design and run the pipelines that get data from where it is to where decisions get made. ETL/ELT, warehouse modeling, observability, the ops that keep it humming.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card">
+                        <h4>DevOps Engineering</h4>
+                        <p>Automate the build, test, deploy, and operate loop. CI/CD that doesn't lie, infrastructure-as-code that re-deploys cleanly, and runbooks for the moments that matter.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Openings Section -->
-    <section id="openings" class="section section-bg">
-        <div class="container">
-            <h2>Job Openings</h2>
-            <div class="row justify-content-center">
-                <!-- Job 1 -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title">Data Engineer</h4>
-                            <p class="card-text">Design, implement, and manage data pipelines, ensuring efficient data processing, storage, and accessibility for analysis and insights</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Job 2 -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title">DevOps Engineer</h4>
-                            <p class="card-text">Automate and optimize the development, deployment, and operation of software applications, enhancing collaboration and efficiency</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- ── Careers ────────────────────────────────────────────────────────── -->
+    <section id="careers" class="section section-alt">
+        <div class="container text-center">
+            <h2>Careers</h2>
+            <p class="lead mb-4">
+                We hire engineers who care about the parts of software that don't show up in screenshots —
+                tests, backups, security, the on-call rotation. If that sounds like you, send a resume.
+            </p>
+            <a href="mailto:careers@stonemontdata.com" class="btn btn-brand">careers@stonemontdata.com</a>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- ── Contact ────────────────────────────────────────────────────────── -->
     <section id="contact" class="section">
         <div class="container">
-            <h2 style="margin-top: 20px;">Contact Us</h2> <!-- Adjusted margin-top -->
-            <p>If you have any questions or inquiries, feel free to reach out to us at info@stonemontdata.com. Send your resume to careers@stonemontdata.com</p>
-            <!-- Add contact details here -->
+            <div class="text-center">
+                <h2>Contact</h2>
+                <p class="lead mb-4">
+                    Demos, pricing, custom-software discovery calls — drop us a line.
+                </p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-block">
+                    <h4>General</h4>
+                    <p><a href="mailto:info@stonemontdata.com">info@stonemontdata.com</a></p>
+                </div>
+                <div class="contact-block">
+                    <h4>Office</h4>
+                    <p>Allen, TX</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ── Footer ─────────────────────────────────────────────────────────── -->
     <footer>
         <div class="container">
-            <small><i>We participate in E-Verify | Stonemont Data LLC is an Equal Opportunity Employer</i></small>
-            <p>&copy; 2023 Stonemont Data | Allen, TX</p>
+            <p><small><i>We participate in E-Verify · Stonemont Data LLC is an Equal Opportunity Employer</i></small></p>
+            <p>&copy; 2026 Stonemont Data · Allen, TX</p>
         </div>
     </footer>
 
