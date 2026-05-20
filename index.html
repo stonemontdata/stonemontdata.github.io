@@ -12,373 +12,459 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stonemont Data — Software for the unglamorous work your business runs on</title>
+    <title>Stonemont Data — Modern software for mission-driven organizations</title>
     <meta name="description" content="Stonemont Data builds production software for mosques, schools, food businesses, and operations teams. Mission Logs (digital signage), Slaughterhouse Operations Manager, and custom B2B software services from a small Allen, TX team.">
     <link rel="icon" href="images/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <!-- Fonts: same family used in the signage portal so the marketing site
+         and the product feel like one brand. DM Serif Display for headings,
+         Source Sans 3 for body. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
+        /* ── Reset / base ───────────────────────────────────────────────── */
+        *, *::before, *::after { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
-            background-color: white;
+            margin: 0;
+            font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 17px;
+            line-height: 1.6;
             color: #1a1a1a;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-            line-height: 1.55;
+            background-color: #faf9f7;
+            -webkit-font-smoothing: antialiased;
         }
+        h1, h2, h3, h4 { font-family: 'DM Serif Display', Georgia, serif; font-weight: normal; letter-spacing: -0.01em; line-height: 1.15; color: #073829; }
+        h1 { font-size: clamp(2.4rem, 5vw, 3.8rem); margin: 0 0 1.25rem; }
+        h2 { font-size: clamp(1.9rem, 3.5vw, 2.6rem); margin: 0 0 1rem; }
+        h3 { font-size: 1.6rem; margin: 0 0 0.5rem; color: #094736; }
+        h4 { font-size: 1.2rem; margin: 0 0 0.5rem; color: #094736; font-family: 'Source Sans 3', sans-serif; font-weight: 600; }
+        p  { margin: 0 0 1rem; color: #1a1a1a; }
+        .muted { color: #5c5c5c; }
+        a  { color: #094736; text-decoration: none; }
+        a:hover { color: #0d5c4a; text-decoration: underline; }
+        .container { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
+        section { padding: 100px 0; }
+        @media (max-width: 720px) { section { padding: 60px 0; } }
 
-        /* ── Navbar ── */
-        .navbar {
-            background-color: #FFA500;
-            padding: 15px 0;
-            position: fixed;
-            width: 100%;
+        /* ── Header ─────────────────────────────────────────────────────── */
+        header {
+            background: rgba(250, 249, 247, 0.92);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e5e2dc;
+            position: sticky;
             top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            z-index: 100;
         }
-        .navbar-brand { margin: 0; padding: 0; max-width: 200px; }
-        .navbar-brand img { max-width: 100%; }
-        .navbar-nav .nav-item { display: inline-block; }
-        .navbar-nav .nav-link {
-            color: #000;
-            font-weight: 600;
-            padding: 0.5rem 1rem;
-            font-size: 1rem;
-        }
-        .navbar-nav .nav-link:hover {
-            background-color: #e68a00;
-            border-radius: 5px;
-            color: #fff;
-        }
-
-        /* ── Section spacing ── */
-        .section { padding: 60px 0; }
-        .section-hero { padding: 130px 0 60px; text-align: center; }
-        .section-alt { background-color: #faf9f7; }
-
-        h1 { font-weight: 600; letter-spacing: -0.02em; }
-        h2 { font-weight: 600; letter-spacing: -0.01em; margin-bottom: 1.5rem; }
-        h3 { font-weight: 600; }
-        .lead { color: #555; max-width: 700px; margin: 0 auto; }
-
-        /* ── Hero ── */
-        .hero-logo { max-width: 460px; width: 100%; height: auto; margin-bottom: 1.5rem; }
-        .hero-tag {
-            font-size: 1.5rem;
-            font-weight: 500;
-            color: #1a1a1a;
-            max-width: 760px;
-            margin: 0 auto 1rem;
-            line-height: 1.4;
-        }
-        .hero-sub {
-            color: #555;
-            font-size: 1.1rem;
-            max-width: 680px;
-            margin: 0 auto;
-        }
-
-        /* ── Product cards ── */
-        .product-card {
-            background: #fff;
-            border: 1px solid #eee;
-            border-radius: 8px;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.05);
-            padding: 28px;
-            height: 100%;
+        .nav-row {
             display: flex;
-            flex-direction: column;
-            transition: box-shadow 0.2s ease, transform 0.2s ease;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 0;
         }
-        .product-card:hover {
-            box-shadow: 0 10px 24px rgba(0,0,0,0.1);
-            transform: translateY(-2px);
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
-        .product-card .product-eyebrow {
-            font-size: 0.75rem;
+        .brand img { height: 38px; width: auto; }
+        .brand-text {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.2rem;
+            color: #073829;
+            letter-spacing: 0.01em;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 28px;
+        }
+        nav a {
+            color: #5c5c5c;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.15s ease;
+        }
+        nav a:hover { color: #094736; text-decoration: none; }
+        @media (max-width: 720px) {
+            .brand-text { display: none; }
+            nav ul { gap: 16px; font-size: 0.9rem; }
+            nav a { font-size: 0.9rem; }
+        }
+
+        /* ── Buttons ────────────────────────────────────────────────────── */
+        .btn {
+            display: inline-block;
+            padding: 12px 22px;
+            font-family: 'Source Sans 3', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-radius: 8px;
+            border: 1.5px solid transparent;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            text-decoration: none;
+            line-height: 1.2;
+        }
+        .btn-primary {
+            background: #094736;
+            border-color: #094736;
+            color: #faf9f7;
+        }
+        .btn-primary:hover {
+            background: #0d5c4a;
+            border-color: #0d5c4a;
+            color: #faf9f7;
+            text-decoration: none;
+        }
+        .btn-outline {
+            background: transparent;
+            border-color: #094736;
+            color: #094736;
+        }
+        .btn-outline:hover {
+            background: #094736;
+            color: #faf9f7;
+            text-decoration: none;
+        }
+        .btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
+
+        /* ── Hero ───────────────────────────────────────────────────────── */
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            background: #faf9f7;
+        }
+        .hero-eyebrow {
+            display: inline-block;
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.78rem;
             font-weight: 700;
-            color: #FFA500;
+            color: #c9a227;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-bottom: 0.5rem;
-        }
-        .product-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.75rem;
-            color: #1a1a1a;
-        }
-        .product-card p {
-            color: #444;
-            flex-grow: 1;
+            letter-spacing: 0.18em;
             margin-bottom: 1.25rem;
         }
-        .product-card .product-bullets {
-            color: #555;
-            font-size: 0.92rem;
-            padding-left: 1.25rem;
-            margin-bottom: 1.5rem;
+        .hero h1 { max-width: 18ch; margin-left: auto; margin-right: auto; }
+        .hero-sub {
+            font-size: 1.2rem;
+            color: #5c5c5c;
+            max-width: 640px;
+            margin: 0 auto 2rem;
+            line-height: 1.55;
         }
-        .product-card .product-bullets li { margin-bottom: 0.3rem; }
-        .product-card .product-ctas {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            margin-top: auto;
-        }
-
-        /* ── Buttons ── */
-        .btn-brand {
-            background-color: #FFA500;
-            border-color: #FFA500;
-            color: #000;
-            font-weight: 600;
-            padding: 0.5rem 1.1rem;
-        }
-        .btn-brand:hover {
-            background-color: #e68a00;
-            border-color: #e68a00;
-            color: #fff;
-        }
-        .btn-outline-brand {
-            border: 2px solid #FFA500;
-            background-color: transparent;
-            color: #1a1a1a;
-            font-weight: 600;
-            padding: 0.4rem 1rem;
-        }
-        .btn-outline-brand:hover {
-            background-color: #FFA500;
-            color: #000;
+        .hero .btn-row { justify-content: center; }
+        @media (max-width: 720px) {
+            .hero { padding: 80px 0 60px; }
+            .hero-sub { font-size: 1.05rem; }
         }
 
-        /* ── Services cards (smaller, secondary) ── */
-        .service-card {
-            background: #fff;
-            border: none;
-            border-left: 4px solid #FFA500;
-            border-radius: 4px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-            padding: 22px;
-            height: 100%;
+        /* ── Section heading block ──────────────────────────────────────── */
+        .section-head {
+            text-align: center;
+            margin-bottom: 56px;
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
         }
-        .service-card h4 {
-            color: #FFA500;
+        .section-eyebrow {
+            display: inline-block;
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.78rem;
             font-weight: 700;
-            font-size: 1.1rem;
+            color: #c9a227;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            margin-bottom: 0.75rem;
+        }
+        .section-head p { color: #5c5c5c; font-size: 1.05rem; margin-bottom: 0; }
+
+        /* ── Products grid ──────────────────────────────────────────────── */
+        .section-products { background: #ffffff; border-top: 1px solid #e5e2dc; border-bottom: 1px solid #e5e2dc; }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        @media (max-width: 960px) { .products-grid { grid-template-columns: 1fr; gap: 20px; } }
+
+        .product-card {
+            background: #faf9f7;
+            border: 1px solid #e5e2dc;
+            border-radius: 12px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(7, 56, 41, 0.08);
+            border-color: #c3d9d2;
+        }
+        .product-eyebrow {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #c9a227;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
             margin-bottom: 0.5rem;
         }
-        .service-card p { color: #555; font-size: 0.95rem; margin: 0; }
+        .product-card h3 { margin-bottom: 0.75rem; }
+        .product-card p { color: #1a1a1a; }
+        .product-card .product-bullets {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1.75rem;
+            flex-grow: 1;
+        }
+        .product-card .product-bullets li {
+            color: #5c5c5c;
+            font-size: 0.95rem;
+            padding: 6px 0 6px 22px;
+            position: relative;
+        }
+        .product-card .product-bullets li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 14px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #c9a227;
+        }
+        .product-card .btn-row { margin-top: auto; }
 
-        /* ── Contact + careers strip ── */
+        /* ── Services strip ─────────────────────────────────────────────── */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+        @media (max-width: 720px) { .services-grid { grid-template-columns: 1fr; } }
+        .service-item h4 { color: #094736; margin-bottom: 0.5rem; }
+        .service-item p  { color: #5c5c5c; font-size: 0.97rem; margin: 0; }
+        .service-item {
+            padding-left: 18px;
+            border-left: 3px solid #c9a227;
+        }
+
+        /* ── Careers + Contact ──────────────────────────────────────────── */
+        .section-careers { background: #ffffff; border-top: 1px solid #e5e2dc; }
+        .careers-inner { text-align: center; max-width: 620px; margin: 0 auto; }
+        .careers-inner p { color: #5c5c5c; font-size: 1.05rem; margin-bottom: 1.5rem; }
+
         .contact-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
             max-width: 720px;
             margin: 0 auto;
         }
-        @media (min-width: 768px) {
-            .contact-grid { grid-template-columns: 1fr 1fr; }
-        }
+        @media (max-width: 640px) { .contact-grid { grid-template-columns: 1fr; } }
         .contact-block {
             text-align: center;
-            padding: 1.5rem;
-            background: #fff;
-            border-radius: 6px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            padding: 28px 24px;
+            background: #ffffff;
+            border: 1px solid #e5e2dc;
+            border-radius: 12px;
         }
-        .contact-block h4 { color: #FFA500; margin-bottom: 0.5rem; }
-        .contact-block a { color: #1a1a1a; font-weight: 600; }
+        .contact-block h4 { color: #c9a227; margin-bottom: 0.5rem; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.18em; }
+        .contact-block a { color: #094736; font-weight: 600; font-size: 1.05rem; }
 
-        /* ── Footer ── */
+        /* ── Footer ─────────────────────────────────────────────────────── */
         footer {
-            background-color: #FFA500;
-            color: #000;
+            background: #073829;
+            color: #c3d9d2;
             text-align: center;
-            padding: 18px 0;
+            padding: 40px 0;
             font-size: 0.9rem;
         }
-        footer p { margin: 0.25rem 0; }
+        footer p { color: #c3d9d2; margin: 0.25rem 0; }
+        footer .fine { color: #73a898; font-style: italic; font-size: 0.82rem; }
     </style>
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light">
+
+    <!-- ── Header ─────────────────────────────────────────────────────────── -->
+    <header>
         <div class="container">
-            <a class="navbar-brand" href="#home">
-                <img src="images/logo.png" alt="Stonemont Data">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#careers">Careers</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
+            <div class="nav-row">
+                <a class="brand" href="#home">
+                    <img src="images/logo.png" alt="Stonemont Data">
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
-    </nav>
+    </header>
 
     <!-- ── Hero ───────────────────────────────────────────────────────────── -->
-    <section id="home" class="section-hero">
+    <section id="home" class="hero">
         <div class="container">
-            <img src="images/logo_2.png" alt="Stonemont Data" class="hero-logo">
-            <p class="hero-tag">Software for the unglamorous work your business runs on.</p>
+            <span class="hero-eyebrow">Stonemont Data · Allen, TX</span>
+            <h1>Modern software for mission-driven organizations.</h1>
             <p class="hero-sub">
                 We build production applications for mosques, schools, food businesses, and operations
-                teams — and we sweat the details that make them actually used. Two shipped products and
-                custom software services from a small team in Allen, TX.
+                teams &mdash; and we sweat the details that make them actually used. Two shipped products
+                and custom software services from a small, opinionated team.
             </p>
+            <div class="btn-row">
+                <a href="#products" class="btn btn-primary">See our products</a>
+                <a href="#contact" class="btn btn-outline">Get in touch</a>
+            </div>
         </div>
     </section>
 
     <!-- ── Products ───────────────────────────────────────────────────────── -->
-    <section id="products" class="section section-alt">
+    <section id="products" class="section-products">
         <div class="container">
-            <div class="text-center">
-                <h2>Products</h2>
-                <p class="lead mb-5">Built end-to-end, deployed to real customers, maintained by us.</p>
+            <div class="section-head">
+                <span class="section-eyebrow">Products</span>
+                <h2>Built end-to-end. Deployed to real customers. Maintained by us.</h2>
+                <p>Two products that started as customer engagements and grew into platforms.</p>
             </div>
-            <div class="row">
 
-                <!-- Mission Logs (signage) -->
-                <div class="col-lg-4 mb-4">
-                    <div class="product-card">
-                        <div class="product-eyebrow">Digital signage</div>
-                        <h3>Mission Logs</h3>
-                        <p>
-                            Run every screen in your building from one dashboard. Live prayer times with
-                            iqamah countdowns, sponsor rotation with monthly impression reports, donation
-                            thermometers with scan-to-give QR, janazah announcements that reach every TV
-                            in seconds, lunch menus, bell schedules, daily verses, emergency alerts.
-                        </p>
-                        <ul class="product-bullets">
-                            <li>Mosque, school, and generic-office modes</li>
-                            <li>Mobile control panel for imams (PIN-gated, no admin login required)</li>
-                            <li>Pair a TV with a 6-digit code; works on any HDMI device</li>
-                            <li>Multi-tenant, role-based, audit-logged</li>
-                        </ul>
-                        <div class="product-ctas">
-                            <a href="https://signage.stonemontdata.com/login" class="btn btn-brand">Sign in</a>
-                            <a href="https://signage.stonemontdata.com/register" class="btn btn-outline-brand">Get started</a>
-                        </div>
+            <div class="products-grid">
+
+                <!-- Mission Logs -->
+                <article class="product-card">
+                    <div class="product-eyebrow">Digital signage</div>
+                    <h3>Mission Logs</h3>
+                    <p>
+                        Run every screen in your building from one dashboard. Live prayer times with
+                        iqamah countdowns, sponsor rotation with monthly impression reports, donation
+                        thermometers with scan-to-give QR, janazah announcements that reach every TV
+                        in seconds, lunch menus, bell schedules, daily verses, emergency alerts.
+                    </p>
+                    <ul class="product-bullets">
+                        <li>Mosque, school, and generic-office modes</li>
+                        <li>Mobile control panel for imams &mdash; PIN-gated, no admin login required</li>
+                        <li>Pair a TV with a 6-digit code; works on any HDMI device</li>
+                        <li>Multi-tenant, role-based, audit-logged</li>
+                    </ul>
+                    <div class="btn-row">
+                        <a href="https://signage.stonemontdata.com/login" class="btn btn-primary">Sign in</a>
+                        <a href="https://signage.stonemontdata.com/register" class="btn btn-outline">Get started</a>
                     </div>
-                </div>
+                </article>
 
                 <!-- Slaughterhouse Operations Manager -->
-                <div class="col-lg-4 mb-4">
-                    <div class="product-card">
-                        <div class="product-eyebrow">Operations</div>
-                        <h3>Slaughterhouse Operations Manager</h3>
-                        <p>
-                            Day-to-day operations software for slaughterhouses. Track animals from intake
-                            through processing, keep the compliance records auditors actually ask for,
-                            manage inventory and supplier relationships, and run the back office without
-                            a stack of spreadsheets.
-                        </p>
-                        <ul class="product-bullets">
-                            <li>Intake, processing, and dispatch logs in one system</li>
-                            <li>Compliance-ready audit trails</li>
-                            <li>Inventory and supplier records with reporting</li>
-                            <li>Built for halal operators, usable by any operation</li>
-                        </ul>
-                        <div class="product-ctas">
-                            <a href="https://slops.stonemontdata.com" class="btn btn-brand">Open Slops</a>
-                            <a href="#contact" class="btn btn-outline-brand">Talk to us</a>
-                        </div>
+                <article class="product-card">
+                    <div class="product-eyebrow">Operations</div>
+                    <h3>Slaughterhouse Operations Manager</h3>
+                    <p>
+                        Day-to-day operations software for slaughterhouses. Track animals from intake
+                        through processing, keep the compliance records auditors actually ask for,
+                        manage inventory and supplier relationships, and run the back office without
+                        a stack of spreadsheets.
+                    </p>
+                    <ul class="product-bullets">
+                        <li>Intake, processing, and dispatch logs in one system</li>
+                        <li>Compliance-ready audit trails</li>
+                        <li>Inventory and supplier records with reporting</li>
+                        <li>Built for halal operators, usable by any operation</li>
+                    </ul>
+                    <div class="btn-row">
+                        <a href="https://slops.stonemontdata.com" class="btn btn-primary">Open Slops</a>
+                        <a href="#contact" class="btn btn-outline">Talk to us</a>
                     </div>
-                </div>
+                </article>
 
                 <!-- Custom Software -->
-                <div class="col-lg-4 mb-4">
-                    <div class="product-card">
-                        <div class="product-eyebrow">Engagement</div>
-                        <h3>Custom software</h3>
-                        <p>
-                            When off-the-shelf doesn't fit. We've shipped to production for mosques,
-                            schools, food businesses, and field operations teams. Cloud-native on Azure,
-                            modern stack, real production-readiness — security, observability, backups,
-                            CI/CD — not just a demo.
-                        </p>
-                        <ul class="product-bullets">
-                            <li>Discovery → working prototype in weeks, not quarters</li>
-                            <li>You own the code and the infrastructure</li>
-                            <li>Maintenance and on-call available on request</li>
-                            <li>References from existing customers on request</li>
-                        </ul>
-                        <div class="product-ctas">
-                            <a href="#contact" class="btn btn-brand">Get in touch</a>
-                        </div>
+                <article class="product-card">
+                    <div class="product-eyebrow">Engagement</div>
+                    <h3>Custom software</h3>
+                    <p>
+                        When off-the-shelf doesn&rsquo;t fit. We&rsquo;ve shipped to production for
+                        mosques, schools, food businesses, and field operations teams. Cloud-native on
+                        Azure, modern stack, real production-readiness &mdash; security, observability,
+                        backups, CI/CD &mdash; not just a demo.
+                    </p>
+                    <ul class="product-bullets">
+                        <li>Discovery &rarr; working prototype in weeks, not quarters</li>
+                        <li>You own the code and the infrastructure</li>
+                        <li>Maintenance and on-call available on request</li>
+                        <li>References from existing customers on request</li>
+                    </ul>
+                    <div class="btn-row">
+                        <a href="#contact" class="btn btn-primary">Get in touch</a>
                     </div>
-                </div>
+                </article>
 
             </div>
         </div>
     </section>
 
     <!-- ── Services ───────────────────────────────────────────────────────── -->
-    <section id="services" class="section">
+    <section id="services">
         <div class="container">
-            <div class="text-center">
-                <h2>Services</h2>
-                <p class="lead mb-5">Capabilities we bring to engagements, beyond shipped products.</p>
+            <div class="section-head">
+                <span class="section-eyebrow">Services</span>
+                <h2>Capabilities we bring to every engagement.</h2>
+                <p>Beyond shipped products &mdash; the skills our team applies across customer work.</p>
             </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="service-card">
-                        <h4>Staffing Solutions</h4>
-                        <p>The right talent for your team — sourced, vetted, and onboarded to your specific stack and operating norms, not just a resume drop.</p>
-                    </div>
+            <div class="services-grid">
+                <div class="service-item">
+                    <h4>Staffing</h4>
+                    <p>The right talent for your team &mdash; sourced, vetted, and onboarded to your specific stack and operating norms, not just a resume drop.</p>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="service-card">
-                        <h4>Data Engineering</h4>
-                        <p>Design and run the pipelines that get data from where it is to where decisions get made. ETL/ELT, warehouse modeling, observability, the ops that keep it humming.</p>
-                    </div>
+                <div class="service-item">
+                    <h4>Data engineering</h4>
+                    <p>Design and run the pipelines that get data from where it is to where decisions get made. ETL/ELT, warehouse modeling, observability.</p>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="service-card">
-                        <h4>DevOps Engineering</h4>
-                        <p>Automate the build, test, deploy, and operate loop. CI/CD that doesn't lie, infrastructure-as-code that re-deploys cleanly, and runbooks for the moments that matter.</p>
-                    </div>
+                <div class="service-item">
+                    <h4>DevOps engineering</h4>
+                    <p>Automate the build, test, deploy, and operate loop. CI/CD that doesn&rsquo;t lie, infrastructure-as-code, and runbooks for the moments that matter.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ── Careers ────────────────────────────────────────────────────────── -->
-    <section id="careers" class="section section-alt">
-        <div class="container text-center">
-            <h2>Careers</h2>
-            <p class="lead mb-4">
-                We hire engineers who care about the parts of software that don't show up in screenshots —
-                tests, backups, security, the on-call rotation. If that sounds like you, send a resume.
-            </p>
-            <a href="mailto:careers@stonemontdata.com" class="btn btn-brand">careers@stonemontdata.com</a>
+    <section id="careers" class="section-careers">
+        <div class="container">
+            <div class="careers-inner">
+                <span class="section-eyebrow">Careers</span>
+                <h2>We hire engineers who sweat the unglamorous parts.</h2>
+                <p>
+                    Tests, backups, security, the on-call rotation. The stuff that doesn&rsquo;t show up
+                    in screenshots but decides whether the software still works at 3 AM. If that sounds
+                    like you, send a resume.
+                </p>
+                <a href="mailto:careers@stonemontdata.com" class="btn btn-primary">careers@stonemontdata.com</a>
+            </div>
         </div>
     </section>
 
     <!-- ── Contact ────────────────────────────────────────────────────────── -->
-    <section id="contact" class="section">
+    <section id="contact">
         <div class="container">
-            <div class="text-center">
-                <h2>Contact</h2>
-                <p class="lead mb-4">
-                    Demos, pricing, custom-software discovery calls — drop us a line.
-                </p>
+            <div class="section-head">
+                <span class="section-eyebrow">Contact</span>
+                <h2>Demos, pricing, custom-software conversations.</h2>
+                <p>Drop us a line &mdash; you&rsquo;ll hear back from a human.</p>
             </div>
             <div class="contact-grid">
                 <div class="contact-block">
                     <h4>General</h4>
-                    <p><a href="mailto:info@stonemontdata.com">info@stonemontdata.com</a></p>
+                    <a href="mailto:info@stonemontdata.com">info@stonemontdata.com</a>
                 </div>
                 <div class="contact-block">
                     <h4>Office</h4>
-                    <p>Allen, TX</p>
+                    <a href="#" style="color:#1a1a1a; pointer-events:none; cursor:default;">Allen, TX</a>
                 </div>
             </div>
         </div>
@@ -387,13 +473,11 @@
     <!-- ── Footer ─────────────────────────────────────────────────────────── -->
     <footer>
         <div class="container">
-            <p><small><i>We participate in E-Verify · Stonemont Data LLC is an Equal Opportunity Employer</i></small></p>
-            <p>&copy; 2026 Stonemont Data · Allen, TX</p>
+            <p>&copy; 2026 Stonemont Data &middot; Allen, TX</p>
+            <p class="fine">We participate in E-Verify &middot; Stonemont Data LLC is an Equal Opportunity Employer</p>
         </div>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 
 </html>
