@@ -8,216 +8,476 @@
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'G-YGNLGQSNWJ');
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stonemont Data - Staffing and Software Solutions</title>
+    <title>Stonemont Data — Modern software for mission-driven organizations</title>
+    <meta name="description" content="Stonemont Data builds production software for mosques, schools, food businesses, and operations teams. Mission Logs (digital signage), Slaughterhouse Operations Manager, and custom B2B software services from a small Allen, TX team.">
     <link rel="icon" href="images/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+
+    <!-- Fonts: same family used in the signage portal so the marketing site
+         and the product feel like one brand. DM Serif Display for headings,
+         Source Sans 3 for body. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
+        /* ── Reset / base ───────────────────────────────────────────────── */
+        *, *::before, *::after { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
-            background-color: white;
-            color: black;
-            position: relative;
-            font-family: Arial, sans-serif; /* Adjusted font */
+            margin: 0;
+            font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 17px;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background-color: #faf9f7;
+            -webkit-font-smoothing: antialiased;
         }
+        h1, h2, h3, h4 { font-family: 'DM Serif Display', Georgia, serif; font-weight: normal; letter-spacing: -0.01em; line-height: 1.15; color: #073829; }
+        h1 { font-size: clamp(2.4rem, 5vw, 3.8rem); margin: 0 0 1.25rem; }
+        h2 { font-size: clamp(1.9rem, 3.5vw, 2.6rem); margin: 0 0 1rem; }
+        h3 { font-size: 1.6rem; margin: 0 0 0.5rem; color: #094736; }
+        h4 { font-size: 1.2rem; margin: 0 0 0.5rem; color: #094736; font-family: 'Source Sans 3', sans-serif; font-weight: 600; }
+        p  { margin: 0 0 1rem; color: #1a1a1a; }
+        .muted { color: #5c5c5c; }
+        a  { color: #094736; text-decoration: none; }
+        a:hover { color: #0d5c4a; text-decoration: underline; }
+        .container { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
+        section { padding: 100px 0; }
+        @media (max-width: 720px) { section { padding: 60px 0; } }
 
-        .navbar {
-            background-color: #FFA500;
-            padding: 15px 0;
-            text-align: center;
-            position: fixed;
-            width: 100%;
+        /* ── Header ─────────────────────────────────────────────────────── */
+        header {
+            background: rgba(250, 249, 247, 0.92);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e5e2dc;
+            position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 100;
         }
-
-        .navbar-brand {
+        .nav-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 0;
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .brand img { height: 38px; width: auto; }
+        .brand-text {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.2rem;
+            color: #073829;
+            letter-spacing: 0.01em;
+        }
+        nav ul {
+            list-style: none;
             margin: 0;
             padding: 0;
-            max-width: 200px; /* Adjusted logo size */
+            display: flex;
+            gap: 28px;
+        }
+        nav a {
+            color: #5c5c5c;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.15s ease;
+        }
+        nav a:hover { color: #094736; text-decoration: none; }
+        @media (max-width: 720px) {
+            .brand-text { display: none; }
+            nav ul { gap: 16px; font-size: 0.9rem; }
+            nav a { font-size: 0.9rem; }
         }
 
-        .navbar-brand img {
-            max-width: 100%; /* Ensure the logo scales properly */
-        }
-
-        .navbar-nav {
+        /* ── Buttons ────────────────────────────────────────────────────── */
+        .btn {
             display: inline-block;
-            margin-left: 10px;
+            padding: 12px 22px;
+            font-family: 'Source Sans 3', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-radius: 8px;
+            border: 1.5px solid transparent;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            text-decoration: none;
+            line-height: 1.2;
         }
-
-        .navbar-nav .nav-item {
-            display: inline-block;
+        .btn-primary {
+            background: #094736;
+            border-color: #094736;
+            color: #faf9f7;
         }
-
-        .navbar-nav .nav-link {
-            color: #000;
-            font-weight: bold;
-            padding: 0.5rem 1rem;
-            font-size: 1.1rem; /* Adjusted font size */
+        .btn-primary:hover {
+            background: #0d5c4a;
+            border-color: #0d5c4a;
+            color: #faf9f7;
+            text-decoration: none;
         }
-
-        .navbar-nav .nav-link:hover {
-            background-color: #e68a00;
-            border-radius: 5px;
-            color: #fff;
+        .btn-outline {
+            background: transparent;
+            border-color: #094736;
+            color: #094736;
         }
+        .btn-outline:hover {
+            background: #094736;
+            color: #faf9f7;
+            text-decoration: none;
+        }
+        .btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
 
-        .section {
-            padding: 20px 0; /* Adjusted padding */
+        /* ── Hero ───────────────────────────────────────────────────────── */
+        .hero {
+            padding: 120px 0 80px;
             text-align: center;
+            background: #faf9f7;
+        }
+        .hero-eyebrow {
+            display: inline-block;
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: #c9a227;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            margin-bottom: 1.25rem;
+        }
+        .hero h1 { max-width: 18ch; margin-left: auto; margin-right: auto; }
+        .hero-sub {
+            font-size: 1.2rem;
+            color: #5c5c5c;
+            max-width: 640px;
+            margin: 0 auto 2rem;
+            line-height: 1.55;
+        }
+        .hero .btn-row { justify-content: center; }
+        @media (max-width: 720px) {
+            .hero { padding: 80px 0 60px; }
+            .hero-sub { font-size: 1.05rem; }
         }
 
-        .section-bg {
-            background-color: white;
-            color: #000;
+        /* ── Section heading block ──────────────────────────────────────── */
+        .section-head {
+            text-align: center;
+            margin-bottom: 56px;
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .section-eyebrow {
+            display: inline-block;
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: #c9a227;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            margin-bottom: 0.75rem;
+        }
+        .section-head p { color: #5c5c5c; font-size: 1.05rem; margin-bottom: 0; }
+
+        /* ── Products grid ──────────────────────────────────────────────── */
+        .section-products { background: #ffffff; border-top: 1px solid #e5e2dc; border-bottom: 1px solid #e5e2dc; }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        @media (max-width: 960px) { .products-grid { grid-template-columns: 1fr; gap: 20px; } }
+
+        .product-card {
+            background: #faf9f7;
+            border: 1px solid #e5e2dc;
+            border-radius: 12px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(7, 56, 41, 0.08);
+            border-color: #c3d9d2;
+        }
+        .product-eyebrow {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #c9a227;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            margin-bottom: 0.5rem;
+        }
+        .product-card h3 { margin-bottom: 0.75rem; }
+        .product-card p { color: #1a1a1a; }
+        .product-card .product-bullets {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1.75rem;
+            flex-grow: 1;
+        }
+        .product-card .product-bullets li {
+            color: #5c5c5c;
+            font-size: 0.95rem;
+            padding: 6px 0 6px 22px;
+            position: relative;
+        }
+        .product-card .product-bullets li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 14px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #c9a227;
+        }
+        .product-card .btn-row { margin-top: auto; }
+
+        /* ── Services strip ─────────────────────────────────────────────── */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+        @media (max-width: 720px) { .services-grid { grid-template-columns: 1fr; } }
+        .service-item h4 { color: #094736; margin-bottom: 0.5rem; }
+        .service-item p  { color: #5c5c5c; font-size: 0.97rem; margin: 0; }
+        .service-item {
+            padding-left: 18px;
+            border-left: 3px solid #c9a227;
         }
 
-        .card {
-            border: none;
-            background-color: white;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added box shadow */
-        }
+        /* ── Careers + Contact ──────────────────────────────────────────── */
+        .section-careers { background: #ffffff; border-top: 1px solid #e5e2dc; }
+        .careers-inner { text-align: center; max-width: 620px; margin: 0 auto; }
+        .careers-inner p { color: #5c5c5c; font-size: 1.05rem; margin-bottom: 1.5rem; }
 
-        .card-title {
-            color: #FFA500;
-            font-weight: bold;
-            font-size: 1.2rem; /* Adjusted font size */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            max-width: 720px;
+            margin: 0 auto;
         }
-
-        .card-text {
-            color: #555;
+        @media (max-width: 640px) { .contact-grid { grid-template-columns: 1fr; } }
+        .contact-block {
+            text-align: center;
+            padding: 28px 24px;
+            background: #ffffff;
+            border: 1px solid #e5e2dc;
+            border-radius: 12px;
         }
+        .contact-block h4 { color: #c9a227; margin-bottom: 0.5rem; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.18em; }
+        .contact-block a { color: #094736; font-weight: 600; font-size: 1.05rem; }
 
+        /* ── Footer ─────────────────────────────────────────────────────── */
         footer {
-            background-color: #FFA500;
-            color: #000;
+            background: #073829;
+            color: #c3d9d2;
             text-align: center;
-            padding: 10px 0;
+            padding: 40px 0;
+            font-size: 0.9rem;
         }
+        footer p { color: #c3d9d2; margin: 0.25rem 0; }
+        footer .fine { color: #73a898; font-style: italic; font-size: 0.82rem; }
     </style>
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light">
+
+    <!-- ── Header ─────────────────────────────────────────────────────────── -->
+    <header>
         <div class="container">
-            <a class="navbar-brand" href="#home">
-                <img src="images/logo.png" alt="Stonemont Data Logo">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#services">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#openings">Openings</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact Us</a>
-                    </li>
-                </ul>
+            <div class="nav-row">
+                <a class="brand" href="#home">
+                    <img src="images/logo.png" alt="Stonemont Data">
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
-    </nav>
+    </header>
 
-    <!-- Home Section -->
-    <section id="home" class="section section-bg">
+    <!-- ── Hero ───────────────────────────────────────────────────────────── -->
+    <section id="home" class="hero">
         <div class="container">
-            <div class="row justify-content-center">
-                <div style="margin-top: 90px;" class="col-md-8 text-center">
-                    <img src="images/logo_2.png" alt="Stonemont Data Logo" style="max-width: 650px; max-height: 400px;">
+            <span class="hero-eyebrow">Stonemont Data · Allen, TX</span>
+            <h1>Modern software for mission-driven organizations.</h1>
+            <p class="hero-sub">
+                We build production applications for mosques, schools, food businesses, and operations
+                teams &mdash; and we sweat the details that make them actually used. Two shipped products
+                and custom software services from a small, opinionated team.
+            </p>
+            <div class="btn-row">
+                <a href="#products" class="btn btn-primary">See our products</a>
+                <a href="#contact" class="btn btn-outline">Get in touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Products ───────────────────────────────────────────────────────── -->
+    <section id="products" class="section-products">
+        <div class="container">
+            <div class="section-head">
+                <span class="section-eyebrow">Products</span>
+                <h2>Built end-to-end. Deployed to real customers. Maintained by us.</h2>
+                <p>Two products that started as customer engagements and grew into platforms.</p>
+            </div>
+
+            <div class="products-grid">
+
+                <!-- Mission Logs -->
+                <article class="product-card">
+                    <div class="product-eyebrow">Digital signage</div>
+                    <h3>Mission Logs</h3>
+                    <p>
+                        Run every screen in your building from one dashboard. Live prayer times with
+                        iqamah countdowns, sponsor rotation with monthly impression reports, donation
+                        thermometers with scan-to-give QR, janazah announcements that reach every TV
+                        in seconds, lunch menus, bell schedules, daily verses, emergency alerts.
+                    </p>
+                    <ul class="product-bullets">
+                        <li>Mosque, school, and generic-office modes</li>
+                        <li>Mobile control panel for imams &mdash; PIN-gated, no admin login required</li>
+                        <li>Pair a TV with a 6-digit code; works on any HDMI device</li>
+                        <li>Multi-tenant, role-based, audit-logged</li>
+                    </ul>
+                    <div class="btn-row">
+                        <a href="https://signage.stonemontdata.com/login" class="btn btn-primary">Sign in</a>
+                        <a href="https://signage.stonemontdata.com/register" class="btn btn-outline">Get started</a>
+                    </div>
+                </article>
+
+                <!-- Slaughterhouse Operations Manager -->
+                <article class="product-card">
+                    <div class="product-eyebrow">Operations</div>
+                    <h3>Slaughterhouse Operations Manager</h3>
+                    <p>
+                        Day-to-day operations software for slaughterhouses. Track animals from intake
+                        through processing, keep the compliance records auditors actually ask for,
+                        manage inventory and supplier relationships, and run the back office without
+                        a stack of spreadsheets.
+                    </p>
+                    <ul class="product-bullets">
+                        <li>Intake, processing, and dispatch logs in one system</li>
+                        <li>Compliance-ready audit trails</li>
+                        <li>Inventory and supplier records with reporting</li>
+                        <li>Built for halal operators, usable by any operation</li>
+                    </ul>
+                    <div class="btn-row">
+                        <a href="https://slops.stonemontdata.com" class="btn btn-primary">Open Slops</a>
+                        <a href="#contact" class="btn btn-outline">Talk to us</a>
+                    </div>
+                </article>
+
+                <!-- Custom Software -->
+                <article class="product-card">
+                    <div class="product-eyebrow">Engagement</div>
+                    <h3>Custom software</h3>
+                    <p>
+                        When off-the-shelf doesn&rsquo;t fit. We&rsquo;ve shipped to production for
+                        mosques, schools, food businesses, and field operations teams. Cloud-native on
+                        Azure, modern stack, real production-readiness &mdash; security, observability,
+                        backups, CI/CD &mdash; not just a demo.
+                    </p>
+                    <ul class="product-bullets">
+                        <li>Discovery &rarr; working prototype in weeks, not quarters</li>
+                        <li>You own the code and the infrastructure</li>
+                        <li>Maintenance and on-call available on request</li>
+                        <li>References from existing customers on request</li>
+                    </ul>
+                    <div class="btn-row">
+                        <a href="#contact" class="btn btn-primary">Get in touch</a>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Services ───────────────────────────────────────────────────────── -->
+    <section id="services">
+        <div class="container">
+            <div class="section-head">
+                <span class="section-eyebrow">Services</span>
+                <h2>Capabilities we bring to every engagement.</h2>
+                <p>Beyond shipped products &mdash; the skills our team applies across customer work.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-item">
+                    <h4>Staffing</h4>
+                    <p>The right talent for your team &mdash; sourced, vetted, and onboarded to your specific stack and operating norms, not just a resume drop.</p>
+                </div>
+                <div class="service-item">
+                    <h4>Data engineering</h4>
+                    <p>Design and run the pipelines that get data from where it is to where decisions get made. ETL/ELT, warehouse modeling, observability.</p>
+                </div>
+                <div class="service-item">
+                    <h4>DevOps engineering</h4>
+                    <p>Automate the build, test, deploy, and operate loop. CI/CD that doesn&rsquo;t lie, infrastructure-as-code, and runbooks for the moments that matter.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="section">
+    <!-- ── Careers ────────────────────────────────────────────────────────── -->
+    <section id="careers" class="section-careers">
         <div class="container">
-            <h2>Our Services</h2>
-            <div class="row justify-content-center">
-                <!-- Service 1 -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title">Staffing Solutions</h4>
-                            <p class="card-text">Empower your organization with the right talent through our exceptional staffing services, tailored to meet your specific needs and goals.</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="careers-inner">
+                <span class="section-eyebrow">Careers</span>
+                <h2>We hire engineers who sweat the unglamorous parts.</h2>
+                <p>
+                    Tests, backups, security, the on-call rotation. The stuff that doesn&rsquo;t show up
+                    in screenshots but decides whether the software still works at 3 AM. If that sounds
+                    like you, send a resume.
+                </p>
+                <a href="mailto:careers@stonemontdata.com" class="btn btn-primary">careers@stonemontdata.com</a>
+            </div>
+        </div>
+    </section>
 
-                <!-- Service 2 -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title">Software Development</h4>
-                            <p class="card-text">From concept to execution, we're committed to delivering software solutions that drive innovation and propel your business forward.</p>
-                        </div>
-                    </div>
+    <!-- ── Contact ────────────────────────────────────────────────────────── -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-head">
+                <span class="section-eyebrow">Contact</span>
+                <h2>Demos, pricing, custom-software conversations.</h2>
+                <p>Drop us a line &mdash; you&rsquo;ll hear back from a human.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-block">
+                    <h4>General</h4>
+                    <a href="mailto:info@stonemontdata.com">info@stonemontdata.com</a>
+                </div>
+                <div class="contact-block">
+                    <h4>Office</h4>
+                    <a href="#" style="color:#1a1a1a; pointer-events:none; cursor:default;">Allen, TX</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Openings Section -->
-    <section id="openings" class="section section-bg">
-        <div class="container">
-            <h2>Job Openings</h2>
-            <div class="row justify-content-center">
-                <!-- Job 1 -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title">Data Engineer</h4>
-                            <p class="card-text">Design, implement, and manage data pipelines, ensuring efficient data processing, storage, and accessibility for analysis and insights</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Job 2 -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title">DevOps Engineer</h4>
-                            <p class="card-text">Automate and optimize the development, deployment, and operation of software applications, enhancing collaboration and efficiency</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="container">
-            <h2 style="margin-top: 20px;">Contact Us</h2> <!-- Adjusted margin-top -->
-            <p>If you have any questions or inquiries, feel free to reach out to us at info@stonemontdata.com. Send your resume to careers@stonemontdata.com</p>
-            <!-- Add contact details here -->
-        </div>
-    </section>
-
-    <!-- Footer -->
+    <!-- ── Footer ─────────────────────────────────────────────────────────── -->
     <footer>
         <div class="container">
-            <small><i>We participate in E-Verify | Stonemont Data LLC is an Equal Opportunity Employer</i></small>
-            <p>&copy; 2023 Stonemont Data | Allen, TX</p>
+            <p>&copy; 2026 Stonemont Data &middot; Allen, TX</p>
+            <p class="fine">We participate in E-Verify &middot; Stonemont Data LLC is an Equal Opportunity Employer</p>
         </div>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 
 </html>
